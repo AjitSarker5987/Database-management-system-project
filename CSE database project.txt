@@ -1,0 +1,171 @@
+-- Table creation for "bank1"
+CREATE TABLE bank1
+(
+  Bank_id NUMBER(20),
+  City VARCHAR2(30),
+  b_name VARCHAR2(30),
+  Address VARCHAR2(40),
+  PRIMARY KEY (Bank_id)
+);
+
+-- Data insertion for "bank1" table
+-- Row 1
+INSERT INTO bank1 (Bank_id, City, b_name, Address)
+VALUES (1, 'New York', 'ABC Bank', '123 Main Street');
+
+-- Row 2
+INSERT INTO bank1 (Bank_id, City, b_name, Address)
+VALUES (2, 'Los Angeles', 'XYZ Bank', '456 Oak Avenue');
+
+-- Row 3
+INSERT INTO bank1 (Bank_id, City, b_name, Address)
+VALUES (3, 'Chicago', 'DEF Bank', '789 Oak Avenue');
+
+-- Row 4
+INSERT INTO bank1 (Bank_id, City, b_name, Address)
+VALUES (4, 'San Francisco', 'GHI Bank', '456 Pine Street');
+
+-- Table creation for "account"
+CREATE TABLE account
+(
+  balance NUMBER(20) NOT NULL,
+  Account_number NUMBER(20) NOT NULL,
+  PRIMARY KEY (Account_number)
+);
+
+-- Data insertion for "account" table
+-- Row 1
+INSERT INTO account (balance, Account_number)
+VALUES (5000, 1001);
+
+-- Row 2
+INSERT INTO account (balance, Account_number)
+VALUES (7500, 1002);
+
+-- Row 3
+INSERT INTO account (balance, Account_number)
+VALUES (6500, 1003);
+
+-- Row 4
+INSERT INTO account (balance, Account_number)
+VALUES (3000, 1004);
+
+-- Table creation for "customer"
+CREATE TABLE customer
+(
+  name VARCHAR2(30) NOT NULL
+);
+
+-- Data insertion for "customer" table
+-- Row 1
+INSERT INTO customer (name)
+VALUES ('John Doe');
+
+-- Row 2
+INSERT INTO customer (name)
+VALUES ('Jane Smith');
+
+-- Row 3
+INSERT INTO customer (name)
+VALUES ('Mike Johnson');
+
+-- Row 4
+INSERT INTO customer (name)
+VALUES ('Sarah Davis');
+
+-- Table creation for "branch"
+CREATE TABLE branch
+(
+  branch_code NUMBER(20) NOT NULL,
+  branch_name VARCHAR2(30) NOT NULL,
+  Address VARCHAR2(40) NOT NULL,
+  PRIMARY KEY (branch_code)
+);
+
+-- Data insertion for "branch" table
+-- Row 1
+INSERT INTO branch (branch_code, branch_name, Address)
+VALUES (101, 'Downtown Branch', '456 Elm Street');
+
+-- Row 2
+INSERT INTO branch (branch_code, branch_name, Address)
+VALUES (102, 'Uptown Branch', '789 Maple Street');
+
+-- Row 3
+INSERT INTO branch (branch_code, branch_name, Address)
+VALUES (103, 'Eastside Branch', '789 Oak Street');
+
+-- Row 4
+INSERT INTO branch (branch_code, branch_name, Address)
+VALUES (104, 'Northside Branch', '456 Maple Street');
+
+-- Data insertion using PL/SQL for "branch" table
+BEGIN
+  -- Row 5
+  INSERT INTO branch (branch_code, branch_name, Address)
+  VALUES (105, 'Southside Branch', '123 Elm Street');
+
+  -- Row 6
+  INSERT INTO branch (branch_code, branch_name, Address)
+  VALUES (106, 'Westside Branch', '123 Pine Street');
+
+  COMMIT;
+END;
+/
+
+-- Table creation for "loan"
+CREATE TABLE loan
+(
+  loan_number NUMBER(20) NOT NULL,
+  amount NUMBER(20) NOT NULL,
+  PRIMARY KEY (loan_number)
+);
+
+-- Data insertion for "loan" table
+-- Row 1
+INSERT INTO loan (loan_number, amount)
+VALUES (2001, 10000);
+
+-- Row 2
+INSERT INTO loan (loan_number, amount)
+VALUES (2002, 15000);
+
+-- Row 3
+INSERT INTO loan (loan_number, amount)
+VALUES (2003, 8000);
+
+-- Row 4
+INSERT INTO loan (loan_number, amount)
+VALUES (2004, 12000);
+
+-- Table creation for "payment"
+CREATE TABLE payment
+(
+  payment_number NUMBER(20) NOT NULL,
+  payment_date DATE NOT NULL,
+  payment_amount NUMBER(20) NOT NULL,
+  PRIMARY KEY (payment_number)
+);
+
+-- Data insertion for "payment" table
+-- Row 1
+INSERT INTO payment (payment_number, payment_date, payment_amount)
+VALUES (3001, TO_DATE('2023-11-04', 'YYYY-MM-DD'), 500);
+
+-- Row 2
+INSERT INTO payment (payment_number, payment_date, payment_amount)
+VALUES (3002, TO_DATE('2023-11-05', 'YYYY-MM-DD'), 750);
+
+-- Data insertion using PL/SQL for "payment" table
+BEGIN
+  -- Row 3
+  INSERT INTO payment (payment_number, payment_date, payment_amount)
+  VALUES (3003, TO_DATE('2023-11-06', 'YYYY-MM-DD'), 600);
+
+  -- Row 4
+  INSERT INTO payment (payment_number, payment_date, payment_amount)
+  VALUES (3004, TO_DATE('2023-11-07', 'YYYY-MM-DD'), 400);
+
+  COMMIT;
+END;
+/
